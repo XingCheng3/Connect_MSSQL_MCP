@@ -115,6 +115,7 @@ npm start        # node dist/index.js
 
 ## 📚 Docs
 
+- 变更日志：`CHANGELOG.md`
 - 发布说明（v1.1.0）：`docs/RELEASE_NOTES_v1.1.0.md`
 - 多平台安装片段：`docs/INSTALL_SNIPPETS.md`
 - 仓库主页文案包：`docs/HOMEPAGE_COPY.md`
