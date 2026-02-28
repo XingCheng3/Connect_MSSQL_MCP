@@ -80,6 +80,18 @@ npm start        # node dist/index.js
 - 新增功能有最小可复现示例
 - 避免提交敏感信息
 
+## 📅 Release Rhythm（发布节奏建议）
+
+- **每周**：至少 1 次小更新（修复、文档、示例）
+- **每月**：1 次版本发布（v0.x.y）并写 Release Notes
+- **每季度**：1 次“能力升级”版本（新工具/性能改进）
+
+建议采用语义化版本：
+
+- `fix` → patch（`x.y.Z`）
+- `feat` → minor（`x.Y.z`）
+- breaking change → major（`X.y.z`）
+
 ## 📄 License
 
 ISC
