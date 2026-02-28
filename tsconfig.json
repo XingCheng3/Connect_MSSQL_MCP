@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",                 // Target modern Node.js versions
+    "module": "NodeNext",             // Use Node.js native ES Modules
+    "moduleResolution": "NodeNext",      // How modules are resolved
+    "outDir": "./dist",               // Output directory for compiled JS
+    "rootDir": "./src",               // Source directory for TS files
+    "strict": true,                   // Enable all strict type-checking options
+    "esModuleInterop": true,          // Enables emit interoperability between CommonJS and ES Modules
+    "skipLibCheck": true,             // Skip type checking of declaration files
+    "forceConsistentCasingInFileNames": true, // Disallow inconsistently-cased references to the same file
+    "resolveJsonModule": true,       // Allow importing JSON files
+     "lib": ["ESNext"]                 // Include latest ES features
+  },
+  "include": ["src/**/*"],           // Which files to include in compilation
+  "exclude": ["node_modules", "dist"] // Which files/folders to exclude
+} 
