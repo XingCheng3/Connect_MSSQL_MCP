@@ -1,21 +1,36 @@
 {
-  "name": "custom-mssql-mcp-server",
-  "version": "1.0.1",
+  "name": "connect-mssql-mcp",
+  "version": "1.1.0",
   "description": "MCP server for executing MSSQL queries with dynamic per-request connection args",
   "main": "dist/index.js",
   "type": "module",
+  "bin": {
+    "connect-mssql-mcp": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "build": "tsc",
     "start": "node dist/index.js",
     "dev": "tsx src/index.ts",
-    "check": "npm run build"
+    "check": "npm run build",
+    "clean": "rm -rf dist",
+    "prepack": "npm run clean && npm run build"
   },
   "keywords": [
     "mcp",
     "model-context-protocol",
     "mssql",
     "sqlserver",
-    "typescript"
+    "typescript",
+    "database",
+    "llm"
   ],
   "author": "XingCheng3",
   "license": "ISC",
@@ -27,6 +42,9 @@
     "url": "https://github.com/XingCheng3/Connect_MSSQL_MCP/issues"
   },
   "homepage": "https://github.com/XingCheng3/Connect_MSSQL_MCP#readme",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.9.0",
     "mssql": "^10.0.2"

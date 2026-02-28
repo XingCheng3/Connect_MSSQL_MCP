@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "connect-mssql": {
+      "command": "npx",
+      "args": ["-y", "connect-mssql-mcp@latest"]
+    }
+  }
+}

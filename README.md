@@ -1,11 +1,11 @@
 # Connect_MSSQL_MCP
 
 [![GitHub stars](https://img.shields.io/github/stars/XingCheng3/Connect_MSSQL_MCP?style=social)](https://github.com/XingCheng3/Connect_MSSQL_MCP/stargazers)
+[![CI](https://github.com/XingCheng3/Connect_MSSQL_MCP/actions/workflows/ci.yml/badge.svg)](https://github.com/XingCheng3/Connect_MSSQL_MCP/actions/workflows/ci.yml)
 [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](./LICENSE)
 [![MCP](https://img.shields.io/badge/Protocol-MCP-7A3EFF)](https://modelcontextprotocol.io)
 
-一个面向 **Microsoft SQL Server** 的 MCP Server（stdio）。  
-A lightweight MCP server for **Microsoft SQL Server**.
+一个面向 **Microsoft SQL Server** 的 MCP Server（stdio）。
 
 > 核心特点：**每次请求动态传入连接参数**（`ip/user/password/...`），默认只读更安全。
 
@@ -20,7 +20,7 @@ A lightweight MCP server for **Microsoft SQL Server**.
 - 每次请求动态传入连接参数（适合多库/多环境）
 - 启动时加 `--enable-write` 才允许写操作
 
-## 🚀 Quick Start
+## 🚀 Quick Start (local)
 
 ```bash
 git clone https://github.com/XingCheng3/Connect_MSSQL_MCP.git
@@ -30,9 +30,17 @@ npm run build
 npm start
 ```
 
-## 🔌 MCP 标准配置（通用）
+## 📦 npm-ready command (after publish)
 
-> 把下面路径替换成你机器上的绝对路径。
+```bash
+npx connect-mssql-mcp@latest
+```
+
+> 当前仓库已完成 npm 发布准备（bin / files / prepack）。
+
+## 🔌 Standard MCP Config
+
+### Option A: local build path
 
 ```json
 {
@@ -45,9 +53,22 @@ npm start
 }
 ```
 
-## 🧩 多平台导入示例（参考 Playwright MCP 风格）
+### Option B: npm package (recommended after publish)
 
-仓库内已提供可直接复制的模板：`examples/mcp/`
+```json
+{
+  "mcpServers": {
+    "connect-mssql": {
+      "command": "npx",
+      "args": ["-y", "connect-mssql-mcp@latest"]
+    }
+  }
+}
+```
+
+## 🧩 Multi-client import examples
+
+已提供配置模板：`examples/mcp/`
 
 - VS Code: `examples/mcp/vscode.mcp.json`
 - Cursor: `examples/mcp/cursor.json`
@@ -55,8 +76,6 @@ npm start
 - Cline: `examples/mcp/cline_mcp_settings.json`
 - Codex CLI: `examples/mcp/codex.config.toml`
 - Gemini CLI: `examples/mcp/gemini.settings.json`
-
-你只需要把模板里的 `/ABS/PATH/.../dist/index.js` 改成自己本机路径。
 
 ## 🧪 Example Tool Call
 
