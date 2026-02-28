@@ -113,6 +113,13 @@ npm start        # node dist/index.js
 - 每月：1 次版本发布（v0.x.y）+ Release Notes
 - 每季度：1 次能力升级（新工具/性能优化）
 
+## 📚 Docs
+
+- 发布说明（v1.1.0）：`docs/RELEASE_NOTES_v1.1.0.md`
+- 多平台安装片段：`docs/INSTALL_SNIPPETS.md`
+- 仓库主页文案包：`docs/HOMEPAGE_COPY.md`
+- npm 发布流程：`docs/PUBLISH.md`
+
 ## 🤝 Contributing
 
 欢迎 issue / PR，提交前请确保 `npm run build` 通过。
