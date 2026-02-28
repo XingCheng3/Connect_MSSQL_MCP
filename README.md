@@ -1,37 +1,41 @@
 # Connect_MSSQL_MCP
 
-A lightweight **MCP server** for Microsoft SQL Server.
+[![GitHub stars](https://img.shields.io/github/stars/XingCheng3/Connect_MSSQL_MCP?style=social)](https://github.com/XingCheng3/Connect_MSSQL_MCP/stargazers)
+[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](./LICENSE)
+[![MCP](https://img.shields.io/badge/Protocol-MCP-7A3EFF)](https://modelcontextprotocol.io)
 
-It provides safe database tools over stdio so LLM clients can query SQL Server with structured inputs.
+一个面向 **Microsoft SQL Server** 的轻量 MCP Server。  
+A lightweight MCP server for **Microsoft SQL Server**.
 
-## Features
+> ✅ 核心特点：**每次请求动态传入数据库连接参数**，适合多库场景。  
+> ✅ Core feature: **dynamic per-request DB connection arguments**.
 
-- `query`: execute SQL (read-only by default)
-- `get_table_structure`: inspect table columns and metadata
-- `get_procedure_content`: fetch stored procedure definitions
-- `get_view_definition`: fetch view definitions
-- Runtime connection args per call (`ip`, `user`, `password`, optional `port`, `database`)
-- Write protection by default (`--enable-write` required for INSERT/UPDATE/DELETE/etc.)
+---
 
-## Why this repo
+## ✨ Features
 
-Most SQL MCP examples assume fixed environment variables. This project supports **dynamic connection parameters per request**, making it easier to use across multiple databases.
+- `query`: 执行 SQL（默认只读）
+- `get_table_structure`: 查看表结构
+- `get_procedure_content`: 查看存储过程定义
+- `get_view_definition`: 查看视图定义
+- 支持每次请求传入连接参数：`ip` / `port` / `database` / `user` / `password`
+- 默认写保护（需 `--enable-write` 才允许 DML/DDL）
 
-## Quick Start
+## 🚀 Quick Start
 
 ```bash
-# 1) Install
+# 1) install
 npm install
 
-# 2) Dev run (stdio)
+# 2) development run
 npm run dev
 
-# 3) Build + run
+# 3) build + run
 npm run build
 npm start
 ```
 
-## Example Tool Call
+## 🧪 Example Tool Call
 
 ```json
 {
@@ -47,37 +51,35 @@ npm start
 }
 ```
 
-## Enable Write Operations (Optional)
+## 🔐 Security Notes
 
-By default, write SQL is blocked.
+- 不要提交真实数据库账号密码。
+- `.env` 文件仅作本地参考，本项目运行时不依赖它。
+- 生产环境建议启用 TLS（`encrypt: true`）并使用最小权限数据库账号。
 
-To enable writes, start with:
-
-```bash
-npm start -- --enable-write
-```
-
-> Use carefully. For production, prefer least-privilege DB accounts.
-
-## Security Notes
-
-- Never commit real credentials.
-- `.env` is not used at runtime in this project.
-- Use TLS in production (`encrypt: true`) and validate certificates.
-
-## Development
+## 🧰 Scripts
 
 ```bash
-npm run build
-npm run dev
+npm run dev      # tsx src/index.ts
+npm run build    # tsc
+npm start        # node dist/index.js
 ```
 
-## Roadmap
+## 🗺️ Roadmap
 
-- [ ] Add automated CI checks
-- [ ] Add integration tests with SQL Server container
-- [ ] Add structured error code mapping
+- [ ] 增加自动化测试（集成 SQL Server 容器）
+- [ ] 增加 CI（build/test）
+- [ ] 增加错误码与错误分类
+- [ ] 增加更多 schema introspection 工具
 
-## License
+## 🤝 Contributing
+
+欢迎提 issue / PR。提交前请确保：
+
+- 能本地 `npm run build` 通过
+- 新增功能有最小可复现示例
+- 避免提交敏感信息
+
+## 📄 License
 
 ISC
