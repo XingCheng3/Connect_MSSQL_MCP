@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "connect-mssql": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["/ABS/PATH/Connect_MSSQL_MCP/dist/index.js"],
+      "disabled": false
+    }
+  }
+}

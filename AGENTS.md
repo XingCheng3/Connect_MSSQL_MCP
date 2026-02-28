@@ -4,7 +4,7 @@
 - `src/index.ts`：MCP 服务器入口与工具处理器（`query`、`get_table_structure`、`get_procedure_content`、`get_view_definition`）。
 - `dist/`：TypeScript 编译输出目录（由 `npm run build` 生成）。
 - `package.json`：脚本与依赖；`tsconfig.json`：ES2022、ESM（NodeNext）、严格类型。
-- `.env`：仅供参考；服务器不会读取任何环境变量作为默认连接配置。所有连接参数必须由调用方在每次请求中显式传入（`ip`、`user`、`password` 必填，`port`、`database` 可选）。
+- 不使用 `.env` 作为运行配置；所有连接参数必须由调用方在每次请求中显式传入（`ip`、`user`、`password` 必填，`port`、`database` 可选）。
 
 ## 构建、运行与开发
 - `npm run dev`：使用 `tsx` 在开发模式下通过 stdio 启动，供 MCP 客户端连接。
@@ -34,6 +34,6 @@
 - PR 请包含：变更摘要、关联 issue、复现与验证步骤、已脱敏的 SQL 示例；确认未提交任何敏感信息。
 
 ## 安全与配置提示
-- 每次调用需传入连接参数：`ip`、`user`、`password`（必填），`port`/`database`（可选）。不要依赖 `.env`；即便存在 `.env` 文件，服务器也不会使用其中的连接配置。
+- 每次调用需传入连接参数：`ip`、`user`、`password`（必填），`port`/`database`（可选）。本项目不依赖 `.env`。
 - 目前默认 `encrypt: false`、`trustServerCertificate: true` 便于开发；生产环境请启用 TLS（`encrypt: true`）并校验证书。
 - 处理中文字符串时请使用 `N'…'` 字面量前缀（如 `N'中文'`）。
